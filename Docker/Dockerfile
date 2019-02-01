@@ -1,13 +1,13 @@
 FROM ubuntu:latest as builder
 
-LABEL maintainer="Rico <rico93@outlook.com>"
+LABEL maintainer="alliswell2day"
 LABEL V2Ray = "4.12.0"
 
 ENV v2ray_version=4.12.0
 
 RUN apt-get update
 RUN apt-get install curl -y
-RUN curl -L -o /tmp/go.sh https://raw.githubusercontent.com/rico93/v2ray-core/master/release/install-release.sh
+RUN curl -L -o /tmp/go.sh https://raw.githubusercontent.com/alliswell2day/v2ray-core/master/release/install-release.sh
 RUN chmod +x /tmp/go.sh
 RUN /tmp/go.sh --version ${v2ray_version}
 
@@ -19,7 +19,7 @@ RUN runDeps="gcc python3-dev python3-pip python3-setuptools git"\
     && chmod +x /usr/bin/v2ray/v2ctl  \
     && chmod +x /usr/bin/v2ray/v2ray \
     && cd /etc/ \
-	&& git clone -b v2ray_api https://github.com/rico93/shadowsocks-munager.git \
+	&& git clone -b v2ray_api https://github.com/alliswell2day/shadowsocks-munager.git \
     && cd shadowsocks-munager \
     && cp config/config_example.yml config/config.yml \
     && cp config/config.json /etc/v2ray/config.json \
