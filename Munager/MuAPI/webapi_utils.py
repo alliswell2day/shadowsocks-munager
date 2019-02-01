@@ -35,7 +35,7 @@ class WebApi(object):
                 '%s/mod_mu/%s' %
                 (self.WEBAPI_URL, uri),
                 params=uri_params,
-                timeout=10)
+                timeout=60)
 
             return self.parse(res,uri)
         except Exception:
@@ -56,7 +56,7 @@ class WebApi(object):
                  uri),
                 params=uri_params,
                 json=raw_data,
-                timeout=10)
+                timeout=60)
             return self.parse(res, uri)
         except Exception:
             import traceback
